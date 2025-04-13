@@ -4,7 +4,7 @@ import { dbank2_backend } from 'declarations/dbank2_backend';
 function App() {
   const [balance, setBalance] = useState('');
   const [inputAmount, setInputAmount] = useState("");
-  const [withdrawalAmount, setWithdrawalAmount] = useState("");
+  const [outputAmount, setOutputAmount] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Fetch balance on mount
@@ -27,21 +27,21 @@ function App() {
 
     try {
       const deposit = parseFloat(inputAmount);
-      const withdrawal = parseFloat(withdrawalAmount);
+      const withdrawal  = parseFloat(outputAmount);
 
       if (inputAmount.length !== 0 && !isNaN(deposit)) {
         await dbank2_backend.topUp(deposit);
       }
 
-      if (withdrawalAmount.length !== 0 && !isNaN(withdrawal)) {
-        await dbank2_backend.withdraw(withdrawal);
+      if (outputAmount.length !== 0 && !isNaN(withdrawal )) {
+        await dbank2_backend.topDown(withdrawal );
       }
 
       // await dbank2_backend.compound();
       await fetchBalance();
 
       setInputAmount("");
-      setWithdrawalAmount("");
+      setOutputAmount("");
     } catch (err) {
       console.error("Transaction failed:", err);
     }
@@ -70,13 +70,13 @@ function App() {
           />
           <h2>Amount to Withdraw</h2>
           <input
-            id="withdrawal-amount"
+            id="input-amount"
             type="number"
-            name="withdraw"
+            name="topDown"
             step="0.01"
             min="0"
-            value={withdrawalAmount}
-            onChange={(e) => setWithdrawalAmount(e.target.value)}
+            value={outputAmount}
+            onChange={(e) => setOutputAmount(e.target.value)}
           />
           <input
             id="submit-btn"

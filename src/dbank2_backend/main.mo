@@ -5,7 +5,7 @@ import Float "mo:base/Float";
 // class
 actor DBank {
   // var currentValue = 300;
-  stable var currentValue: Float = 300; // persistent variable
+  stable var currentValue: Float = 300; // persistent variable (stable var)
   // currentValue := 100; // re-assign
 
   stable var startTime = Time.now(); // since January 1, 1970
@@ -24,11 +24,12 @@ actor DBank {
     Debug.print(debug_show(currentValue));
   };
 
-  public func withdrawl(amount: Float) {
+  public func topDown(amount: Float) {
     let tempValue: Float = currentValue - amount; // need to specify integer (Int) or float
+    Debug.print(debug_show(tempValue));
     if (tempValue >= 0){
       currentValue -= amount;
-      Debug.print(debug_show(currentValue));
+      
     } else {
       Debug.print("Too large amount.");
     }
