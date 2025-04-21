@@ -71,6 +71,35 @@ textarea:focus {
   margin-top: 50px;
 }
 
+.flag {
+  position: absolute;
+  width: 65px;
+  height: auto;
+  top: 10px;
+}
+
+.left-flag {
+  left: 1vw;
+  transform: rotate(-10deg);
+}
+
+.right-flag {
+  right: 1vw;
+  transform: rotate(10deg);
+}
+
+.left-flag-second {
+  left: 25vw;
+  width: 55px;
+  height: auto;
+}
+
+.right-flag-second {
+  right: 25vw;
+  width: 55px;
+  height: auto;
+}
+
 input[name="amount"] {
   font-size: 20px;
   font-weight: 600;

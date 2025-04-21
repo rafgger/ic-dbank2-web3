@@ -52,6 +52,12 @@ function App() {
   return (
     <main>
       <div className="container">
+
+        <img src="/czech_flag.png" alt="Czech Flag" className="container flag left-flag" />
+        <img src="/scottish_flag.png" alt="Scottish Flag" className="container flag left-flag-second" />
+        <img src="/austrian_flag.png" alt="Austrian Flag" className="container flag right-flag" />
+        <img src="/norwegian_flag.png" alt="Norwegian Flag" className="container flag right-flag-second" />
+
         <img src="/token_logo.png" alt="Token logo" width="100" />
         <h1>Current Balance: $<span id="value">{balance}</span></h1>
 
